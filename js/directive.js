@@ -1,4 +1,4 @@
-angular.module('locator.directives', []).directive('select', function () {
+angular.module('locator.selection', []).directive('select ', function () {
     return {
         scope: {
             values: '=',
