@@ -13,9 +13,6 @@
     "list",
     "selection"
   ],
-  "dependencies": {
-    "angular": "~1.0.6"
-  },
   "license": "MIT",
   "ignore": [
     "**/.*",
