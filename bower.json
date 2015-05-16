@@ -1,0 +1,27 @@
+{
+  "name": "angular-selection-list",
+  "version": "0.0.0",
+  "homepage": "https://github.com/locator-kn/angular-selection-list",
+  "authors": [
+    "Michael Knoch <info@michaelknoch.de>"
+  ],
+  "description": "AngularJS directive for a selection list",
+  "main": "js/directive.js",
+  "keywords": [
+    "angular",
+    "directive",
+    "list",
+    "selection"
+  ],
+  "dependencies": {
+    "angular": "~1.0.6"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
