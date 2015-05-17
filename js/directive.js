@@ -1,5 +1,5 @@
-angular.module('locator.selection', []).directive('listSelection ', function () {
-    
+angular.module('locator.selection', []).directive('listSelection', function () {
+
     return {
         scope: {
             values: '=',
