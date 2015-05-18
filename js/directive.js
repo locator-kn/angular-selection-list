@@ -3,13 +3,13 @@
 angular.module('locator.selection', []).directive('listSelection', function () {
 
     var template = [
-        '<div ng-if="!multiple" class="relative" ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a>',
+        '<div ng-if="!multiple" class="relative selection" ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a>',
         '<ul class="sub">',
         '<li ng-click="select(value)" ng-repeat="value in values">{{value.title}}</li>',
         '</ul>',
         '</div>',
 
-        '<div ng-if="multiple" class="relative" ng-class="{open: opened}"><span class="fullwidth" ng-repeat="value in selectedModel">',
+        '<div ng-if="multiple" class="relative selection" ng-class="{open: opened}"><span class="fullwidth" ng-repeat="value in selectedModel">',
         '<a ng-click="trigger()">{{value.title}}</a><span ng-if="twoPlus()" class="remove_item" ng-click="remove(value)">X</span></span>',
         '<ul class="sub">',
         '<li ng-click="select(item)" ng-repeat="item in values">{{item.title}}</li>',
