@@ -13,6 +13,9 @@
     "list",
     "selection"
   ],
+  "dependencies": {
+    "ng-lodash": "~0.2.3"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
