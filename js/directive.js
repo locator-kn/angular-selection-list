@@ -67,6 +67,8 @@ angular.module('locator.selection', []).directive('listSelection', function () {
 
             $scope.selected = function (value) {
 
+                value.id = value.id || value._id;
+
                 if ($scope.multiple) {
                     // multi comparison
 
