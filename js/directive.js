@@ -38,8 +38,6 @@ angular.module('locator.selection', []).directive('listSelection', function () {
                 if ($scope.selectedModel.length < $scope.values.length || !$scope.multiple) {
                     $scope.opened = !$scope.opened;
                 }
-                $rootScope.$emit('newPopoverSelected', $scope.selectedName);
-
             };
 
             $scope.remove = function (value) {
