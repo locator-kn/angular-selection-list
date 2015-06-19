@@ -29,7 +29,6 @@ angular.module('locator.selection', []).directive('listSelection', function () {
 
         controller: function ($scope, hotkeys, $timeout, $rootScope, lodash) {
 
-
             //handle open/close
             $scope.opened = false;
 
@@ -67,7 +66,9 @@ angular.module('locator.selection', []).directive('listSelection', function () {
 
 
             $scope.selected = function (value) {
-
+                if (!value || !$scope.selectedModel) {
+                    return false;
+                }
                 value.id = value.id || value._id;
 
                 if ($scope.multiple) {
@@ -84,11 +85,7 @@ angular.module('locator.selection', []).directive('listSelection', function () {
                         return true;
                     }
                 }
-
-
-            }
-
-
+            };
         },
         link: function ($scope) {
             $scope.$watch('selectedModel', function (newValue) {
