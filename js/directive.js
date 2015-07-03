@@ -1,9 +1,12 @@
 "use strict";
 
-angular.module('locator.selection', []).directive('listSelection', function () {
+angular.module('locator.selection', []).directive('listSelection', function() {
 
     var template = [
-        '<div ng-if="!multiple" active-popover click-value="selectedName" compare-to="mc.openElement" class="selection" ng-class="{open: selectedName === openElement}"><a ng-click="trigger()"><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
+        '<div ng-if="values.length === 1" class="selection" ng-class="{open: selectedName === openElement}"><a><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
+        '</div>',
+
+        '<div ng-if="(values.length > 1 && !multiple)" active-popover click-value="selectedName" compare-to="mc.openElement" class="selection" ng-class="{open: selectedName === openElement}"><a ng-click="trigger()"><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
         '<ul class="sub">',
         '<li ng-if="!selected(value)" ng-click="select(value)" ng-repeat="value in values">{{value.title}}</li>',
         '</ul>',
@@ -27,30 +30,30 @@ angular.module('locator.selection', []).directive('listSelection', function () {
             'openElement': '='
         },
 
-        controller: function ($scope, hotkeys, $timeout, $rootScope, lodash) {
+        controller: function($scope, hotkeys, $timeout, $rootScope, lodash) {
 
             //handle open/close
             $scope.opened = false;
 
-            $scope.trigger = function () {
+            $scope.trigger = function() {
 
                 if ($scope.selectedModel.length < $scope.values.length || !$scope.multiple) {
                     $scope.opened = !$scope.opened;
                 }
             };
 
-            $scope.remove = function (value) {
+            $scope.remove = function(value) {
                 var i = $scope.selectedModel.indexOf(value);
                 $scope.selectedModel.splice(i, 1);
             };
 
             //returns true, if the list contains more than one item
-            $scope.twoPlus = function () {
+            $scope.twoPlus = function() {
                 return $scope.selectedModel.length > 1;
             };
 
 
-            $scope.select = function (value) {
+            $scope.select = function(value) {
 
                 if ($scope.multiple) {
                     if ($.inArray(value, $scope.selectedModel) == -1) {
@@ -65,7 +68,7 @@ angular.module('locator.selection', []).directive('listSelection', function () {
             };
 
 
-            $scope.selected = function (value) {
+            $scope.selected = function(value) {
                 if (!value || !$scope.selectedModel) {
                     return false;
                 }
@@ -74,7 +77,7 @@ angular.module('locator.selection', []).directive('listSelection', function () {
                 if ($scope.multiple) {
                     // multi comparison
 
-                    return !!lodash.find($scope.selectedModel, function (item) {
+                    return !!lodash.find($scope.selectedModel, function(item) {
                         return item._id === value._id;
                     });
 
@@ -87,8 +90,8 @@ angular.module('locator.selection', []).directive('listSelection', function () {
                 }
             };
         },
-        link: function ($scope) {
-            $scope.$watch('selectedModel', function (newValue) {
+        link: function($scope) {
+            $scope.$watch('selectedModel', function(newValue) {
                 if (newValue && $scope.multiple) {
 
                     if ($scope.selectedModel instanceof Array) {
