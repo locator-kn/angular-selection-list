@@ -3,7 +3,7 @@
 angular.module('locator.selection', []).directive('listSelection', function() {
 
     var template = [
-        '<div ng-if="values.length === 1" class="selection" ng-class="{open: selectedName === openElement}"><a><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
+        '<div ng-if="values.length === 1" class="selection not-selectable" ng-class="{open: selectedName === openElement}"><a><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
         '</div>',
 
         '<div ng-if="(values.length > 1 && !multiple)" active-popover click-value="selectedName" compare-to="mc.openElement" class="selection" ng-class="{open: selectedName === openElement}"><a ng-click="trigger()"><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
