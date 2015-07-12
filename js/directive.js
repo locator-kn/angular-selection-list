@@ -6,7 +6,7 @@ angular.module('locator.selection', []).directive('listSelection', function() {
         '<div ng-if="values.length === 1" class="selection not-selectable" ng-class="{open: selectedName === openElement}"><a><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
         '</div>',
 
-        '<div ng-if="(values.length > 1 && !multiple)" active-popover click-value="selectedName" compare-to="mc.openElement" class="selection" ng-class="{open: selectedName === openElement}"><a ng-click="trigger()"><img ng-if="icon" class="icon" ng-src="data:image/gif;base64,{{value.icon}}"> <span class="title">{{selectedModel.title}}</span></a>',
+        '<div ng-if="(values.length > 1 && !multiple)" active-popover click-value="selectedName" compare-to="mc.openElement" class="selection" ng-class="{open: selectedName === openElement}"><a ng-click="trigger()"><span class="title">{{selectedModel.title}}</span><img class="dropdown-arrow" src="images/icons/dropdown_dreieck.svg"> </a>',
         '<ul class="sub">',
         '<h2 ng-if="title">{{title}}<span ng-if="boldtitle" class="bold"">{{boldtitle}}</span></h2>',
         '<li ng-if="!selected(value)" ng-click="select(value)" ng-repeat="value in values"><img ng-if="icons" class="list-icon" ng-src="images/icons/moods_white/{{value.icon}}"> {{value.title}}</li>',
